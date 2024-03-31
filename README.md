@@ -1,24 +1,7 @@
-# README
+# Autostars
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a little sample Rails app that uses Tower! It uses the
+[autostars](http://tower.dev/tasks/bradhe/autostars) task to suggest a star
+rating based on a review.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+View [the app on Heroku](https://autostar-tower-example-a114d2a5a447.herokuapp.com/).
