@@ -2,9 +2,39 @@
 import { FetchRequest } from "@rails/request.js"
 
 const reviewText = document.getElementById("review-text");
-reviewText.addEventListener("keyup", (e) => {
+const stars = document.getElementById("stars");
+
+const emptyStar = "&#9734;";
+const fullStar = "&#9733;";
+
+function doUpdateStars(num) {
+	let str = ""
+
+	for (var i = 0; i < 5; i++) {
+		if (i < num) {
+			str += fullStar;
+		} else {
+			str += emptyStar;
+		}
+	}
+
+	stars.innerHTML = str;
+};
+
+function clearStars() {
+	let str = ""
+
+	for (var i = 0; i < 5; i++) {
+		str += emptyStar;
+	}
+
+	stars.innerHTML = str;
+};
+
+
+function doCalculateStars(value) {
 	const data = {
-		review: 'Hello, world!',
+		review: value,
 	}
 
 	const opts = {
@@ -12,7 +42,26 @@ reviewText.addEventListener("keyup", (e) => {
 	}
 
 	const request = new FetchRequest('post', '/review', opts);
-  request.perform().then(response => {
-		console.log(response.data);
+  request.perform().then(res => {
+		const response = res.response;
+		return response.json();	
+	}).then(data => {
+		const stars = data.stars;
+		doUpdateStars(stars);
 	});
+}
+
+let timeout = null;
+reviewText.addEventListener("keyup", (e) => {
+	if (timeout) {
+		window.clearTimeout(timeout);
+	}
+
+	timeout = window.setTimeout(() => {
+		if (reviewText.value) {
+			doCalculateStars(reviewText.value);
+		} else {
+			clearStars();
+		}
+	}, 500);
 });
