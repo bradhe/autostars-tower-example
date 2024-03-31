@@ -61,7 +61,6 @@ group :development do
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
   gem "foreman"
-  gem "dotenv"
 end
 
 group :test do
@@ -73,3 +72,4 @@ end
 gem "tailwindcss-rails", "~> 2.3"
 gem 'requestjs-rails'
 gem 'faraday'
+gem "dotenv"
