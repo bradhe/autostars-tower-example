@@ -1,4 +1,4 @@
-# Autostars
+# Autostars :star:
 
 This is a little sample Rails app that uses Tower! It uses the
 [autostars](http://tower.dev/tasks/bradhe/autostars) task to suggest a star
