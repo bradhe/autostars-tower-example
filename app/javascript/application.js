@@ -31,6 +31,9 @@ function clearStars() {
 	stars.innerHTML = str;
 };
 
+function setLoadingMessage(message) {
+	stars.innerHTML = message;
+}
 
 function doCalculateStars(value) {
 	const data = {
@@ -58,6 +61,8 @@ reviewText.addEventListener("keyup", (e) => {
 	}
 
 	timeout = window.setTimeout(() => {
+		setLoadingMessage("Detecting...");
+
 		if (reviewText.value) {
 			doCalculateStars(reviewText.value);
 		} else {
